@@ -1,0 +1,107 @@
+# Local-LLM: Taller de Modelos de Lenguaje Locales
+
+Taller práctico de 2 horas sobre fundamentos de LLMs y cómo ejecutarlos localmente con Ollama.
+
+## Propósito
+
+Este taller busca que estudiantes de ingeniería en computación e informática:
+
+1. **Entiendan** cómo funcionan los modelos de lenguaje a nivel conceptual
+2. **Ejecuten** modelos pequeños localmente sin depender de APIs pagas
+3. **Desarrollen** aplicaciones que potencien al LLM con herramientas (¡superpoderes!)
+4. **Comprendan** que un LLM solo genera texto — somos nosotras/os quienes le damos capacidades reales mediante programación
+
+## Lo que van a aprender
+
+| Ejemplo | Concepto | Archivo |
+|---------|----------|---------|
+| Generación básica | Qué es un LLM y cómo genera texto | `01_generacion_basica.py` |
+| Chat conversacional | Cómo mantener contexto en una conversación | `02_chat_conversacion.py` |
+| Salida estructurada | Cómo forzar al modelo a responder en JSON | `03_salida_estructurada.py` |
+| Embeddings | Cómo los textos se convierten en vectores | `04_embeddings_similitud.py` |
+| RAG simple | Cómo darle contexto propio al modelo | `05_rag_simple.py` |
+| Agente con herramientas | Cómo dotar al LLM de superpoderes | `06_agente_con_herramientas.py` |
+
+## Herramientas necesarias
+
+### 1. Ollama (obligatorio)
+
+Ollama es el motor que corre los modelos localmente.
+
+```bash
+# Instalar Ollama (Linux)
+curl -fsSL https://ollama.com/install.sh | sh
+
+# En macOS, descargar desde https://ollama.com/download
+# En Windows, descargar desde https://ollama.com/download
+```
+
+### 2. Descargar un modelo
+
+```bash
+# Modelo principal del taller (~2GB, corre en 4GB+ RAM)
+ollama pull llama3.2
+
+# Alternativa más chica (~1GB, corre en 2GB+ RAM)
+ollama pull qwen2.5:1.5b
+```
+
+### 3. Python 3.8+ (obligatorio)
+
+Verificar que tengan Python instalado:
+
+```bash
+python3 --version
+```
+
+### 4. Librerías Python
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Verificar que todo funciona
+
+```bash
+# Verificar que Ollama está corriendo
+ollama list
+
+# Probar el modelo desde terminal
+ollama run llama3.2 "Hola, ¿cómo estás?"
+```
+
+## Cómo usar este repositorio
+
+1. Instalar las dependencias (Ollama + librerías Python)
+2. Ejecutar los ejemplos en orden, cada uno introduce un concepto nuevo
+3. Cada archivo es auto-contenido y está comentado en español
+4. Modificar, experimentar y romper cosas — así se aprende
+
+```bash
+python3 01_generacion_basica.py
+python3 02_chat_conversacion.py
+python3 03_salida_estructurada.py
+python3 04_embeddings_similitud.py
+python3 05_rag_simple.py
+python3 06_agente_con_herramientas.py
+```
+
+## Requisitos de hardware
+
+| Modelo | RAM mínima | RAM recomendada |
+|--------|-----------|----------------|
+| qwen2.5:0.5b | 2 GB | 4 GB |
+| qwen2.5:1.5b | 2 GB | 4 GB |
+| llama3.2:1b | 2 GB | 4 GB |
+| llama3.2:3b | 4 GB | 8 GB |
+| mistral:7b | 8 GB | 16 GB |
+
+> **Tip:** Si tu computadora tiene 8GB de RAM o menos, usa `qwen2.5:1.5b` o `llama3.2:1b`.
+
+## Ideas para proyectos posteriores
+
+- Clasificador automático de correos o tickets de soporte
+- Asistente de estudio que responda preguntas sobre tus apuntes (RAG)
+- Generador de datos sintéticos para testing
+- Chatbot con acceso a APIs externas (clima, calculadora, base de datos)
+- Extractor de información estructurada desde texto libre
