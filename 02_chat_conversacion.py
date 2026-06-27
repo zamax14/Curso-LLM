@@ -32,7 +32,7 @@ print("(No recuerda el nombre porque no tiene el contexto)\n")
 print("=== Con memoria: pasamos el historial completo ===")
 
 historial = [
-    {"role": "system", "content": "Sos un asistente amable que recuerda datos del usuario."},
+    {"role": "system", "content": "Eres un asistente amable que recuerda datos del usuario."},
     {"role": "user", "content": "Me llamo Martín y estudio ingeniería en computación."},
 ]
 
@@ -49,17 +49,17 @@ print("(Ahora sí recuerda porque tiene el contexto)\n")
 
 # -----------------------------------------------------------
 # Ejemplo 3: Chat interactivo en terminal (descomentar para probar)
-# Esto crea un bucle donde podés chatear con el modelo.
+# Esto crea un bucle donde puedes chatear con el modelo.
 # -----------------------------------------------------------
 def chat_interactivo():
     """Chat simple en terminal con memoria de conversación."""
     historial = [
-        {"role": "system", "content": "Sos un asistente útil y conciso. Respondé en español."}
+        {"role": "system", "content": "Eres un asistente útil y conciso. Responde en español."}
     ]
-    print("Chat interactivo (escribí 'salir' para terminar)\n")
+    print("Chat interactivo (escribe 'salir' para terminar)\n")
 
     while True:
-        usuario = input("Vos: ")
+        usuario = input("Tú: ")
         if usuario.lower() == "salir":
             break
 

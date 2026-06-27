@@ -32,7 +32,7 @@ r = ollama.generate(
 - "anio_creacion": año de creación (número)
 - "creador": nombre del creador
 - "paradigma": paradigma principal
-Respondé SOLO con JSON válido, sin texto adicional."""
+Responde SOLO con JSON válido, sin texto adicional."""
 )
 try:
     datos = json.loads(r["response"])
@@ -49,10 +49,10 @@ print()
 print("=== Con format='json' (forzado por Ollama) ===")
 r = ollama.generate(
     model="llama3.2",
-    prompt="""Extraé información del siguiente texto y respondé en JSON:
+    prompt="""Extrae información del siguiente texto y responde en JSON:
 "JavaScript fue creado por Brendan Eich en 1995. Es multiparadigma y es el lenguaje de la web."
 
-Usá estas claves: "nombre", "anio_creacion", "creador", "paradigma".""",
+Usa estas claves: "nombre", "anio_creacion", "creador", "paradigma".""",
     format="json"
 )
 datos = json.loads(r["response"])
@@ -65,16 +65,16 @@ print()
 print("=== Clasificador de sentimiento ===")
 
 resenas = [
-    "La pizza estaba buenísima, vollvería mil veces",
-    "Tardó una hora y llegué fría, terrible servicio",
+    "La pizza estaba buenísima, volvería mil veces",
+    "Tardó una hora y llegó fría, pésimo servicio",
     "Normal, nada del otro mundo"
 ]
 
 for resena in resenas:
     r = ollama.generate(
         model="llama3.2",
-        prompt=f"""Clasificá el sentimiento de esta reseña como "positivo", "negativo" o "neutro".
-Respondé en JSON con claves "sentimiento" y "confianza" (0 a 1).
+        prompt=f"""Clasifica el sentimiento de esta reseña como "positivo", "negativo" o "neutro".
+Responde en JSON con claves "sentimiento" y "confianza" (0 a 1).
 
 Reseña: "{resena}" """,
         format="json"

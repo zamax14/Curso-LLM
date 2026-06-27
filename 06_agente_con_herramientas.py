@@ -20,10 +20,10 @@ import json
 def obtener_clima(ciudad):
     """Simula obtener el clima de una ciudad (en la vida real llamaría a una API)."""
     clima_ficticio = {
-        "Buenos Aires": {"temperatura": 22, "condicion": "parcialmente nublado"},
-        "Córdoba": {"temperatura": 25, "condicion": "soleado"},
-        "Mendoza": {"temperatura": 18, "condicion": "ventoso"},
-        "Bariloche": {"temperatura": 8, "condicion": "nevando"},
+        "Ciudad de México": {"temperatura": 22, "condicion": "parcialmente nublado"},
+        "Guadalajara": {"temperatura": 28, "condicion": "soleado"},
+        "Monterrey": {"temperatura": 31, "condicion": "caluroso"},
+        "Puebla": {"temperatura": 20, "condicion": "lluvioso"},
     }
     return json.dumps(clima_ficticio.get(ciudad, {"temperatura": 20, "condicion": "desconocido"}))
 
@@ -41,10 +41,10 @@ def calcular(expresion):
 def buscar_producto(producto):
     """Simula buscar un producto en una base de datos."""
     productos = {
-        "notebook": {"nombre": "Notebook 15\"", "precio": 450000, "stock": 12},
-        "mouse": {"nombre": "Mouse inalámbrico", "precio": 15000, "stock": 50},
-        "teclado": {"nombre": "Teclado mecánico", "precio": 35000, "stock": 25},
-        "monitor": {"nombre": "Monitor 24\"", "precio": 180000, "stock": 8},
+        "laptop": {"nombre": "Laptop 15\"", "precio": 14500, "stock": 12},
+        "mouse": {"nombre": "Mouse inalámbrico", "precio": 250, "stock": 50},
+        "teclado": {"nombre": "Teclado mecánico", "precio": 1200, "stock": 25},
+        "monitor": {"nombre": "Monitor 24\"", "precio": 3200, "stock": 8},
     }
     return json.dumps(productos.get(producto.lower(), {"error": "Producto no encontrado"}))
 
@@ -61,13 +61,13 @@ DEFINICION_HERRAMIENTAS = [
         "type": "function",
         "function": {
             "name": "obtener_clima",
-            "description": "Obtiene el clima actual de una ciudad argentina",
+            "description": "Obtiene el clima actual de una ciudad mexicana",
             "parameters": {
                 "type": "object",
                 "properties": {
                     "ciudad": {
                         "type": "string",
-                        "description": "Nombre de la ciudad (ej: Buenos Aires, Córdoba)"
+                        "description": "Nombre de la ciudad (ej: Ciudad de México, Guadalajara)"
                     }
                 },
                 "required": ["ciudad"]
@@ -101,7 +101,7 @@ DEFINICION_HERRAMIENTAS = [
                 "properties": {
                     "producto": {
                         "type": "string",
-                        "description": "Nombre del producto (ej: notebook, mouse, teclado, monitor)"
+                        "description": "Nombre del producto (ej: laptop, mouse, teclado, monitor)"
                     }
                 },
                 "required": ["producto"]
@@ -116,7 +116,7 @@ DEFINICION_HERRAMIENTAS = [
 def ejecutar_agente(mensaje_usuario):
     """Ejecuta el agente que puede usar herramientas para responder."""
     mensajes = [
-        {"role": "system", "content": "Sos un asistente útil que puede usar herramientas. Siempre respondé en español."},
+        {"role": "system", "content": "Eres un asistente útil que puede usar herramientas. Siempre responde en español."},
         {"role": "user", "content": mensaje_usuario}
     ]
 
@@ -168,10 +168,10 @@ def ejecutar_agente(mensaje_usuario):
 # Probar el agente con distintas consultas
 # -----------------------------------------------------------
 consultas = [
-    "¿Qué clima hace en Córdoba?",
+    "¿Qué clima hace en Guadalajara?",
     "¿Cuánto es 347 * 29?",
     "¿Tienen teclados en la tienda?",
-    "Si un mouse sale 15000 y compro 3, ¿cuánto gasto?",  # Combina herramienta + cálculo
+    "Si un mouse cuesta 250 y compro 3, ¿cuánto gasto?",  # Combina herramienta + cálculo
 ]
 
 for consulta in consultas:

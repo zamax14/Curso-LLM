@@ -14,7 +14,7 @@ import ollama
 # -----------------------------------------------------------
 respuesta = ollama.generate(
     model="llama3.2",
-    prompt="Explicá qué es un modelo de lenguaje en una sola oración."
+    prompt="Explica qué es un modelo de lenguaje en una sola oración."
 )
 print("=== Generación simple ===")
 print(respuesta["response"])
@@ -29,7 +29,7 @@ print("=== Con temperature=0.0 (predecible) ===")
 for i in range(3):
     r = ollama.generate(
         model="llama3.2",
-        prompt="Nombrá un lenguaje de programación.",
+        prompt="Nombra un lenguaje de programación.",
         options={"temperature": 0.0}
     )
     print(f"  Intento {i+1}: {r['response'].strip()}")
@@ -39,7 +39,7 @@ print("=== Con temperature=1.5 (creativo) ===")
 for i in range(3):
     r = ollama.generate(
         model="llama3.2",
-        prompt="Nombrá un lenguaje de programación.",
+        prompt="Nombra un lenguaje de programación.",
         options={"temperature": 1.5}
     )
     print(f"  Intento {i+1}: {r['response'].strip()}")
@@ -49,9 +49,9 @@ print()
 # Ejemplo 3: Prompts más útiles
 # Un buen prompt es la clave para obtener buenas respuestas.
 # -----------------------------------------------------------
-prompt_ingenieria = """Sos un asistente para estudiantes de ingeniería en computación.
-Explicá qué es la recursividad usando analogías de la vida real.
-Sé breve, usá no más de 3 oraciones."""
+prompt_ingenieria = """Eres un asistente para estudiantes de ingeniería en computación.
+Explica qué es la recursividad usando analogías de la vida real.
+Sé breve, usa no más de 3 oraciones."""
 
 respuesta = ollama.generate(model="llama3.2", prompt=prompt_ingenieria)
 print("=== Prompt mejorado ===")
