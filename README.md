@@ -13,14 +13,14 @@ Este taller busca que estudiantes de ingeniería en computación e informática:
 
 ## Lo que aprenderán
 
-| Ejemplo | Concepto | Archivo |
-|---------|----------|---------|
-| Generación básica | Qué es un LLM y cómo genera texto | `01_generacion_basica.py` |
-| Chat conversacional | Cómo mantener contexto en una conversación | `02_chat_conversacion.py` |
-| Salida estructurada | Cómo forzar al modelo a responder en JSON | `03_salida_estructurada.py` |
-| Embeddings | Cómo los textos se convierten en vectores | `04_embeddings_similitud.py` |
-| RAG simple | Cómo darle contexto propio al modelo | `05_rag_simple.py` |
-| Agente con herramientas | Cómo dotar al LLM de superpoderes | `06_agente_con_herramientas.py` |
+| Ejemplo | Concepto | Notebook | Script |
+|---------|----------|----------|--------|
+| Generación básica | Qué es un LLM y cómo genera texto | `01_generacion_basica/notebook.ipynb` | `01_generacion_basica/ejemplo.py` |
+| Chat conversacional | Cómo mantener contexto en una conversación | `02_chat_conversacion/notebook.ipynb` | `02_chat_conversacion/ejemplo.py` |
+| Salida estructurada | Cómo forzar al modelo a responder en JSON | `03_salida_estructurada/notebook.ipynb` | `03_salida_estructurada/ejemplo.py` |
+| Embeddings | Cómo los textos se convierten en vectores | `04_embeddings_similitud/notebook.ipynb` | `04_embeddings_similitud/ejemplo.py` |
+| RAG simple | Cómo darle contexto propio al modelo | `05_rag_simple/notebook.ipynb` | `05_rag_simple/ejemplo.py` |
+| Agente con herramientas | Cómo dotar al LLM de superpoderes | `06_agente_con_herramientas/notebook.ipynb` | `06_agente_con_herramientas/ejemplo.py` |
 
 ## Herramientas necesarias
 
@@ -73,17 +73,27 @@ ollama run llama3.2 "Hola, ¿cómo estás?"
 ## Cómo usar este repositorio
 
 1. Instalar las dependencias (Ollama + bibliotecas Python)
-2. Ejecutar los ejemplos en orden, cada uno introduce un concepto nuevo
-3. Cada archivo es autocontenido y está comentado en español
+2. Abrir los notebooks en orden para ver el paso a paso de cada concepto
+3. Ejecutar los scripts cuando solo quieras correr la versión directa
 4. Modificar, experimentar y hacer pruebas — así se aprende
 
 ```bash
-python3 01_generacion_basica.py
-python3 02_chat_conversacion.py
-python3 03_salida_estructurada.py
-python3 04_embeddings_similitud.py
-python3 05_rag_simple.py
-python3 06_agente_con_herramientas.py
+jupyter lab
+```
+
+Cada carpeta incluye:
+
+- `README.md`: mini explicación del problema.
+- `notebook.ipynb`: explicación guiada con celdas independientes.
+- `ejemplo.py`: código compacto para ejecución directa.
+
+```bash
+python3 01_generacion_basica/ejemplo.py
+python3 02_chat_conversacion/ejemplo.py
+python3 03_salida_estructurada/ejemplo.py
+python3 04_embeddings_similitud/ejemplo.py
+python3 05_rag_simple/ejemplo.py
+python3 06_agente_con_herramientas/ejemplo.py
 ```
 
 ## Requisitos de hardware
